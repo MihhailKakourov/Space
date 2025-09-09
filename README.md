@@ -1,73 +1,60 @@
-# ⌨️ *Space*
+# Space ⌨️
 
-## 📌 General Overview
+## Üldine teave
 
-**Space** is an arcade game featuring two gameplay modes: **Endless** and **Story Mode**. The player defends against waves of enemies by typing words on the keyboard and sending them with the **Space** key. To deal damage, the word must be typed **correctly**—any error forces the player to retype the entire word.
+**"Space"** on top-down 2D pixel-art rogue-like, kus mängija juhib tegelast, kes võitleb vaenlaste lainekondade vastu, kasutades sõnade sisestamise ja sihtimise mehhanisme. Mängija saab liikumiseks kasutada nooleklahve, sihtimiseks hiirt ja tulistamiseks sisestada sõna ja vajutada tühikuklahvi. 
 
-Each enemy requires a different strategy: some are defeated quickly, others demand speed or endurance. In **Story Mode**, players face a series of enemies and a final boss. In **Endless Mode**, players battle until defeat—surviving as long as possible.
+## Mängu mängimine 🎮
 
----
+Põhitegelane saab liikumiseks kasutada nooleklahve. Selleks, et vaenlasele tulistada, peab mängija sihtima hiirega ja sisestama vastava sõna, seejärel vajutama tühikuklahvi. Sõnadel on erinevad raskusastmed, mis sõltuvad vaenlase tüübist.
 
-## 🎮 Core Gameplay
+Iga vaenlane nõuab erinevat raskusastmega sõna:
 
-Players defend themselves by typing **English words**.
+- **kuni 5 tähemärki** - lihtne tase (tavalised vaenlased) 🟢
+- **5–7 tähemärki** - keskmine tase (kiired vaenlased) 🟡
+- **7–10 tähemärki** - raske tase (kilbiga vaenlased ja maagid) 🔴
 
-- Press **Space** to send the word and deal damage.
-- Typing errors reset the word.
-- Victory depends on **accuracy**, **speed**, and the **number** of words typed.
+## Vaenlased 👾
 
----
+Mängus on mitmeid vaenlaste tüüpe, igaühel oma omadused ja rünnakumehhanismid:
 
-## ⚙️ Game Mechanics
+### Tavaline vaenlane
+- Ründab põhitegelast, kui jõuab piisavalt lähedale. ⚔️
+- Sõna raskusaste: **lihtne** 🟢.
 
-### 🎯 Modes
+### Kiire vaenlane
+- Liigub 1,5 korda kiiremini kui tavalised vaenlased. 🏃‍♂️💨
+- Sõna raskusaste: **keskmine** 🟡.
 
-#### Story Mode
-- 10 enemies in a row → then the **final boss**.
-- Each enemy has unique characteristics.
-- The boss requires **20+ words** and has **special mechanics** (e.g., obscuring input or hiding the word).
+### Kilbiga vaenlane
+- Tõrjumiseks tuleb sisestada mitu sõna (sõltuvalt raskusastmest). 🛡️
+- Sõna raskusaste: **raske** 🔴.
 
-#### Endless Mode
-- The game continues until defeat.
-- Enemies appear in **waves**, no bosses.
-- Each round increases in difficulty: enemies get **faster** and more **durable**.
+### Maagi
+- Suudab külmutada sõnade sisestamise protsessi, kui tabab põhitegelast maagilise löögiga. ❄️✨
+- Sõna raskusaste: **raske** 🔴.
 
----
+## Mängurežiimid 🕹️
 
-## 🧠 Controls
+### Lõpmatu režiim ♾️
+Mängija peab ellu jääma nii kaua kui võimalik, võideldes laine laine järel vaenlastega. 🌊
 
-| Key         | Action                  |
-|-------------|-------------------------|
-| Letters     | Type word               |
-| Space       | Submit word / attack    |
-| Esc         | Pause / Menu            |
+Igas lahes on kuni 25 vaenlast (esimeses lahes 10 vaenlast). 💥
 
----
+Pärast igat lahingut saab mängija külastada poodi, kus saab osta täiustusi:
 
-## 👾 Enemy Types
+- **Kilp** - võimaldab põhitegelasel taluda mitu lööki vaenlastelt ilma vigastusteta. 🛡️
+- **Lisaelu** - suurendab põhitegelase tervisepunktide kogusummat. ❤️
 
-- **Standard Enemy** — Dies from one correctly typed word.
-- **Speedy Enemy** — Moves faster but also dies from one word.
-- **Shielded Enemy** — Moves slowly, requires **2–3 words** to defeat.
-- **Boss (Story Mode only)** — Appears at the end of Story Mode. Requires **20+ words** and may use **special attacks**:
-  - Temporarily hides the word.
-  - Distorts letters.
-  - Disrupts input.
+Mõnikord ilmuvad mänguväljal ka võimendid, nagu:
 
----
+- **Mittetundlikkus** - muudab põhitegelase ajutiselt haavamatu. ✨
+- **Lihtsad sõnad** - sõnad on kergemini sisestatavad. 🟢
+- **Kilp** - pakub kaitset vaenlaste rünnakute eest. 🛡️
 
-## 🧪 Example Gameplay Cycle
+### Väljakutse režiim 🎯
+Mängija peab läbima 10 lainet nii kiiresti kui võimalik ja võitma lõppmängu. ⏱️
 
-The player sees one of three enemy types: standard, speedy, or shielded.  
-→ Type the word  
-→ Enemy takes damage  
-→ Next enemy appears.
+Vaenlaste tapmise eest teenitakse punkte, mis aja jooksul kaovad. 💥
 
----
-
-## 🖥️ UI/UX Elements
-
-- **Required Word** — Displayed in block-style letters; each must be typed.
-- **Enemy Wave** — Positioned in front of the player and gradually approaches.
-- **Score Indicator** — Shows the player's current score.
-- **Boss Timer (Story Mode)** — Displays how many enemies remain before the boss.
+Kui mängija teenib rekordilise punktisumma, pääseb ta kõrgeimale 10 mängija edetabelisse. 🏆
