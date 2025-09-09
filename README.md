@@ -58,3 +58,7 @@ Mängija peab läbima 10 lainet nii kiiresti kui võimalik ja võitma lõppmäng
 Vaenlaste tapmise eest teenitakse punkte, mis aja jooksul kaovad. 💥
 
 Kui mängija teenib rekordilise punktisumma, pääseb ta kõrgeimale 10 mängija edetabelisse. 🏆
+
+## Kasutatavad tehnoloogiad 🛠️
+- **Godot** mängumootoris
+- **Git** koodiversioonide haldamiseks
