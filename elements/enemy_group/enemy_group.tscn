@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp2lvrxbvbupk"]
+
+[ext_resource type="Script" uid="uid://dt5jcpwpmi0yd" path="res://elements/enemy_group/enemy_group.gd" id="1_mn5x3"]
+[ext_resource type="PackedScene" uid="uid://b8x66mioth3ws" path="res://elements/enemy/enemy.tscn" id="1_qky66"]
+
+[node name="EnemyGroup" type="Node2D" groups=["enemy_group"]]
+script = ExtResource("1_mn5x3")
+
+[node name="Enemy" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(54, 44)
+
+[node name="Enemy7" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(81, 80)
+
+[node name="Enemy8" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(112, 80)
+
+[node name="Enemy9" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(143, 80)
+
+[node name="Enemy10" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(179, 80)
+
+[node name="Enemy11" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(113, 113)
+
+[node name="Enemy12" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(151, 112)
+
+[node name="Enemy13" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(129, 141)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(85, 44)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(113, 44)
+
+[node name="Enemy4" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(143, 44)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(177, 45)
+
+[node name="Enemy6" parent="." instance=ExtResource("1_qky66")]
+position = Vector2(209, 46)
+
+[node name="BlockTimer" type="Timer" parent="." groups=["enemy_group"]]
+wait_time = 0.5
