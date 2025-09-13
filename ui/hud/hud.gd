@@ -1,9 +1,10 @@
 extends CanvasLayer
 
-@onready var points_labal = $MarginContainer/VBoxContainer/HBoxContainer/Label
+@onready var points_label = $MarginContainer/VBoxContainer/HBoxContainer/Label
 
 func _ready() -> void:
 	Events.points_changed.connect(update_points)
 	
-func update_points(poins: int):
-	points_labal.text = str(poins)
+func update_points(points: int):
+	if is_instance_valid(points_label):
+		points_label.text = str(points)

@@ -3,8 +3,6 @@ extends CharacterBody2D
 const SPEED = 300
 const ROCKET_SCENE = preload("res://elements/rocket/rocket.tscn")
 
-#https://www.youtube.com/watch?v=8Jgm0qrl9tE (28:10)
-
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -26,3 +24,4 @@ func shot():
 	
 func take_damage():
 	Globals.lives_changed(-1)
+	

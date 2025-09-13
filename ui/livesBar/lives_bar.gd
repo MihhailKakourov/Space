@@ -7,12 +7,20 @@ func _ready() -> void:
 	update_lives(Globals.lives)
 	
 func update_lives(lives: int):
-	var diff = lives - get_parent().get_child_count()
+	if lives < 0:
+		return
+	#Сначала очищаем лишние или добавляем недостающие
+	var diff = lives - get_child_count() #считаем детей в HBoxContainer
 	for i in range(abs(diff)):
-		add_live() if diff > 0 else remove_live()
+		if diff > 0:
+			add_live()
+		else:
+			remove_live()
 	
 func add_live():
-	get_parent().add_child(RECT_SCENE.instantiate())
+	add_child(RECT_SCENE.instantiate())
 	
 func remove_live():
-	get_parent().get_child(0).queue_free()
+	if get_child_count() <= 1:
+		print("game over")
+	get_child(0).queue_free()
