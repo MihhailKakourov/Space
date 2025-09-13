@@ -15,6 +15,11 @@ run/main_scene="uid://cybo7w4wo145k"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*res://core/events.gd"
+Globals="*res://core/globals.gd"
+
 [display]
 
 window/size/viewport_width=256
@@ -29,6 +34,7 @@ window/canvas_textures/default_texture_filter=1
 2d_render/layer_2="enemy"
 2d_render/layer_3="ship"
 2d_render/layer_4="rocket"
+2d_render/layer_5="bullet"
 
 [rendering]
 

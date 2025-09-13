@@ -19,6 +19,10 @@ func _physics_process(delta: float) -> void:
 func shot():
 	var rocket = ROCKET_SCENE.instantiate()
 	rocket.global_position = global_position + Vector2(0, -25)
-	print("Ship position: " + str(global_position))
-	print("Rocket position: " + str(rocket.global_position))
+	#print("Ship position: " + str(global_position))
+	#print("Rocket position: " + str(rocket.global_position))
 	get_parent().add_child(rocket) # <- вместо add_child(rocket)
+	
+	
+func take_damage():
+	Globals.lives_changed(-1)

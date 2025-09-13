@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://0gcsto8a6bbd"]
+
+[ext_resource type="Script" uid="uid://cgbutclocqxvn" path="res://ui/livesBar/lives_bar.gd" id="1_fk4uu"]
+[ext_resource type="PackedScene" uid="uid://co5kp4x0bt5jo" path="res://ui/livesBar/live_rect.tscn" id="2_fxtim"]
+
+[node name="LivesBar" type="HBoxContainer"]
+script = ExtResource("1_fk4uu")
+
+[node name="LiveRect" parent="." instance=ExtResource("2_fxtim")]
+layout_mode = 2
+
+[node name="LiveRect2" parent="." instance=ExtResource("2_fxtim")]
+layout_mode = 2
+
+[node name="LiveRect3" parent="." instance=ExtResource("2_fxtim")]
+layout_mode = 2

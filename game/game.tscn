@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cybo7w4wo145k"]
+[gd_scene load_steps=6 format=3 uid="uid://cybo7w4wo145k"]
 
+[ext_resource type="PackedScene" uid="uid://c8ewqtqh65ok7" path="res://ui/hud/hud.tscn" id="1_dxrkv"]
 [ext_resource type="Texture2D" uid="uid://drnslwr1gira5" path="res://assets/Space_Stars2.png" id="1_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://crndkupnya16u" path="res://elements/space_ship/space_ship.tscn" id="2_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://bg86gs0y2lilo" path="res://elements/wall/wall.tscn" id="3_dxrkv"]
@@ -7,10 +8,12 @@
 
 [node name="Game" type="Node2D"]
 
+[node name="HUD" parent="." instance=ExtResource("1_dxrkv")]
+
 [node name="background" type="Sprite2D" parent="."]
 texture_filter = 3
 texture_repeat = 2
-position = Vector2(126, 120)
+position = Vector2(128, 120)
 texture = ExtResource("1_h7iqs")
 region_enabled = true
 region_rect = Rect2(256, 240, 256, 240)
