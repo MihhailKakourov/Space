@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/main_character/character_body_2d.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
 [ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
 [ext_resource type="Script" uid="uid://k12syeuhpjmb" path="res://words/wordmanager.gd" id="5_word"]
 
@@ -13,31 +14,11 @@ script = ExtResource("4_game")
 [node name="MainCharacter" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(339, 330)
 
-[node name="EnemySkeleton1" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="EnemySkeleton1" parent="." instance=ExtResource("3_h7iqs")]
 position = Vector2(560, 124)
-script = null
 
-[node name="SkeletonEnemy2" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
 position = Vector2(307, 256)
-script = null
 
 [node name="WordManager" type="Node" parent="."]
 script = ExtResource("5_word")
