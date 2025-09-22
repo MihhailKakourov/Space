@@ -31,8 +31,9 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vasa2")
 autoplay = "default"
-frame_progress = 0.98361
+frame_progress = 0.0605582
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 2
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_xb5pd")
