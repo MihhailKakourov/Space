@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqeat51756ldk"]
+[gd_scene load_steps=5 format=3 uid="uid://cqeat51756ldk"]
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
-[ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/main_character/character_body_2d.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="4_4fuuu"]
 
 [node name="game" type="Node2D"]
 
 [node name="main_map" parent="." instance=ExtResource("1_l1rk1")]
 
-[node name="MainCharacter" parent="." instance=ExtResource("2_vasa2")]
+[node name="Player" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(339, 330)
 
 [node name="EnemySkeleton1" parent="." instance=ExtResource("3_h7iqs")]
-position = Vector2(560, 124)
+position = Vector2(472, 177)
+speed = null
+stop_distance = null
 
-[node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
-position = Vector2(307, 256)
+[node name="EnemySkeleton2" parent="." instance=ExtResource("4_4fuuu")]
+position = Vector2(353, 181)

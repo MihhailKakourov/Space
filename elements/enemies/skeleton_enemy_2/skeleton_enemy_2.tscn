@@ -1,5 +1,6 @@
-[gd_scene load_steps=53 format=3 uid="uid://8os2no8ix8uu"]
+[gd_scene load_steps=54 format=3 uid="uid://8os2no8ix8uu"]
 
+[ext_resource type="Script" uid="uid://dj7cpfct32s4i" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.gd" id="1_ouvrj"]
 [ext_resource type="Texture2D" uid="uid://c5rfgcw3on1gk" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_attack.png" id="1_rb6s7"]
 [ext_resource type="Texture2D" uid="uid://m85wjpriwp05" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_death2.png" id="2_ouvrj"]
 [ext_resource type="Texture2D" uid="uid://ccv2dbaoam6mo" path="res://assets/Enemy_Animations_Set/enemies-skeleton2_idle.png" id="3_wfisw"]
@@ -351,16 +352,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f0pej"]
-radius = 17.0
+radius = 20.0
 height = 44.0
 
 [node name="SkeletonEnemy2" type="CharacterBody2D"]
+script = ExtResource("1_ouvrj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_5bal3")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.849086
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 15)

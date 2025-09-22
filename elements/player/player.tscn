@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://cc38gtrpx7cuo"]
 
-[ext_resource type="Script" uid="uid://dv4446vd2gkye" path="res://elements/main_character/character_body_2d.gd" id="1_tr1gg"]
+[ext_resource type="Script" uid="uid://dv4446vd2gkye" path="res://elements/player/player.gd" id="1_tr1gg"]
 [ext_resource type="Texture2D" uid="uid://ciie4flgevs41" path="res://assets/main_character/Idle.png" id="1_u6ywh"]
 [ext_resource type="Texture2D" uid="uid://ccgfvc2ov7bxg" path="res://assets/main_character/Walk.png" id="3_nxvbj"]
 
@@ -219,7 +219,7 @@ animations = [{
 radius = 14.0
 height = 44.0
 
-[node name="MainCharacter" type="CharacterBody2D"]
+[node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_tr1gg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -230,5 +230,5 @@ animation = &"walk_up"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, -6)
+position = Vector2(11, -7)
 shape = SubResource("CapsuleShape2D_xb5pd")
