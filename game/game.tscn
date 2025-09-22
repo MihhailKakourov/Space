@@ -1,14 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqeat51756ldk"]
 
 [ext_resource type="PackedScene" uid="uid://b2q4gr0kt8y1o" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vasa2"]
+[ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/main_character/character_body_2d.tscn" id="2_vasa2"]
 
 [node name="game" type="Node2D"]
 
 [node name="MainMap" parent="." instance=ExtResource("1_l1rk1")]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_vasa2")
+[node name="MainCharacter" parent="." instance=ExtResource("2_vasa2")]
+position = Vector2(541, 339)
