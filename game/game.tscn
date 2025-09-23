@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="4_4fuuu"]
 [ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
 [ext_resource type="Script" uid="uid://k12syeuhpjmb" path="res://words/wordmanager.gd" id="5_word"]
+[ext_resource type="Texture2D" uid="uid://c3uu6jdo72d57" path="res://assets/Pixel_Dungeon_Asset_Pack/Dungeon_Tileset_at.png" id="4_4fuuu"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("4_game")

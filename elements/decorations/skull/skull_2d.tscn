@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv76j0hxqnuug"]
+
+[ext_resource type="Texture2D" uid="uid://b8q7fpujpvpwc" path="res://assets/Pixel_Dungeon_Asset_Pack/character and tileset/Dungeon_Tileset.png" id="1_7fmwe"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7fmwe")
+region_enabled = true
+region_rect = Rect2(112, 112, 16, 16)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://drkdn4bxxew3c"]
+
+[ext_resource type="Texture2D" uid="uid://b8q7fpujpvpwc" path="res://assets/Pixel_Dungeon_Asset_Pack/character and tileset/Dungeon_Tileset.png" id="1_3vf5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0vjv"]
+
+[node name="chest" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.22812, 2.22812)
+texture = ExtResource("1_3vf5p")
+region_enabled = true
+region_rect = Rect2(0, 128, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_r0vjv")

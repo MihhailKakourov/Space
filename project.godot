@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=672
+window/size/viewport_width=688
+window/size/viewport_height=672
 
 [layer_names]
 
