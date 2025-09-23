@@ -15,16 +15,8 @@ script = ExtResource("4_game")
 [node name="Player" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(339, 330)
 
-[node name="EnemySkeleton1" parent="." instance=ExtResource("3_h7iqs")]
-position = Vector2(472, 177)
-speed = null
-stop_distance = null
-
 [node name="EnemySkeleton2" parent="." instance=ExtResource("4_4fuuu")]
 position = Vector2(353, 181)
-
-[node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
-position = Vector2(307, 256)
 
 [node name="WordManager" type="Node" parent="."]
 script = ExtResource("5_word")
@@ -42,3 +34,9 @@ offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
+
+[node name="EnemySkeleton1" parent="." instance=ExtResource("4_4fuuu")]
+position = Vector2(229, 133)
+
+[node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
+position = Vector2(375, 94)
