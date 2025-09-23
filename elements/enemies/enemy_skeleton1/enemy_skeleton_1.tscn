@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bfcwuavvxricc"]
 
-[ext_resource type="Texture2D" uid="uid://b17ocmbpi25c8" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="1_ptvev"]
+[ext_resource type="Texture2D" uid="uid://b17ocmbpi25c8" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="1_uy8xf"]
 [ext_resource type="Texture2D" uid="uid://dg2lp71qjj8cn" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_movement.png" id="2_gky6t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qdcr"]
@@ -125,13 +125,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_qqwjc")
 }],
 "loop": true,
-"name": &"movment",
+"name": &"movement",
 "speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpxai"]
-radius = 20.0
-height = 44.0
+height = 36.0
 
 [node name="EnemySkeleton1" type="CharacterBody2D"]
 
@@ -144,5 +143,5 @@ autoplay = "idle"
 frame_progress = 0.724642
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 9)
+position = Vector2(-5, 9)
 shape = SubResource("CapsuleShape2D_rpxai")

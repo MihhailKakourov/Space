@@ -1,1 +1,1 @@
-extends BasicEnemy
+extends CharacterBody2D
