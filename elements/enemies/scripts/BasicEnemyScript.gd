@@ -7,7 +7,7 @@ class_name BasicEnemy
 @onready var shape = $CollisionShape2D
 var player: Node2D
 
-#TODO: Пофиксить коллизию после смены напраления взгляда врага
+#TODO: Пофиксить коллизию после смены направления взгляда врага
 
 func _ready() -> void:
 	player = get_tree().root.get_node("game/Player")
