@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqeat51756ldk"]
+
+[ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="4_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="4_dxrkv"]
+
+[sub_resource type="GDScript" id="GDScript_4fuuu"]
+script/source = "extends Node2D
+
+@onready var word_manager: Node = $WordManager
+@onready var ui: Control = $UI/MarginContainer/HBoxContainer
+
+var current_word_node: Node = null
+
+func _ready():
+	spawn_new_word()
+
+func _unhandled_input(event: InputEvent):
+	if event is InputEventKey and event.pressed and not event.echo:
+		var char = event.as_text()
+		if current_word_node != null and char.length() == 1:
+			current_word_node.check_input(char)
+
+func spawn_new_word():
+	if current_word_node != null:
+		current_word_node.queue_free()
+
+	var scene = load(\"res://words/word.tscn\")
+	current_word_node = scene.instantiate()
+	ui.add_child(current_word_node)
+
+	var word = word_manager.get_random_word()
+	current_word_node.set_word(word)
+
+	current_word_node.connect(\"word_failed\", Callable(self, \"_on_word_failed\"))
+	current_word_node.connect(\"word_completed\", Callable(self, \"_on_word_completed\"))
+
+func _on_word_failed():
+	var timer = get_tree().create_timer(0.5)
+	await timer.timeout
+	spawn_new_word()
+
+func _on_word_completed():
+	spawn_new_word()
+"
+
+[node name="game" type="Node2D"]
+script = SubResource("GDScript_4fuuu")
+
+[node name="main_map" parent="." instance=ExtResource("1_l1rk1")]
+
+[node name="EnemySkeleton1" parent="." instance=ExtResource("3_h7iqs")]
+position = Vector2(472, 177)
+speed = null
+stop_distance = null
+
+[node name="EnemySkeleton2" parent="." instance=ExtResource("4_4fuuu")]
+position = Vector2(353, 181)
+
+[node name="Player" parent="." instance=ExtResource("4_dxrkv")]
+position = Vector2(240, 247)
