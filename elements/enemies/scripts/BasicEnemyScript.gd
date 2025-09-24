@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func move_to_player() -> void:
-	if attacking:
+	if attacking or sprite.animation == "death":
 		return
 		
 	if is_instance_valid(player):
@@ -71,6 +71,23 @@ func movement_animation() -> void:
 func attack() -> void:
 	attacking = true
 	attackA.play("attack")
+	
+func death() -> void:
+	#Останавливаем врага
+	velocity = Vector2.ZERO
+	
+	#Проигрываем анимацию смерти
+	sprite.play("death")
+	
+	#Выключаем коллизии
+	shape_left.disabled = true
+	shape_right.disabled = true
+	
+	#Ждём окончания анимации
+	await sprite.animation_finished
+	
+	#Отключаем физику
+	set_physics_process(false)
 	
 func get_direction_to_player() -> Vector2:
 	if is_instance_valid(player):

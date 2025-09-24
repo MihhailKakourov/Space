@@ -288,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r054n")
 }],
-"loop": false,
+"loop": true,
 "name": &"death",
 "speed": 8.0
 }, {
@@ -357,21 +357,6 @@ height = 28.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ouvrj"]
 radius = 21.0238
-
-[sub_resource type="Animation" id="Animation_jeulm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/CollisionShape2D:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_ouvrj"]
 length = 1.875
@@ -496,6 +481,21 @@ tracks/1/keys = {
 "values": ["movement"]
 }
 
+[sub_resource type="Animation" id="Animation_jeulm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3d1ph"]
 _data = {
 &"RESET": SubResource("Animation_jeulm"),
@@ -512,7 +512,7 @@ script = ExtResource("1_ouvrj")
 position = Vector2(5.2, -9.8)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_5bal3")
-animation = &"death"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="."]
@@ -523,7 +523,7 @@ position = Vector2(8, 0)
 shape = SubResource("CapsuleShape2D_f0pej")
 disabled = true
 
-[node name="HitBox" type="Area2D" parent="." groups=["Enemies"]]
+[node name="HitBox" type="Area2D" parent="."]
 position = Vector2(36, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
