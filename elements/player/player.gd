@@ -32,5 +32,5 @@ func _movment():
 	
 	move_and_slide()
 	
-func take_damage():
-	print("Damage taken")
+func take_damage(damage):
+	print("Damage taken: " + str(damage))
