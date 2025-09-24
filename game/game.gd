@@ -7,11 +7,11 @@ var current_word_node: Node = null
 var bullet_scene = preload("res://words/bullet.tscn")
 
 func _ready():
-	add_to_group("game") # чтобы пуля могла вызвать spawn_new_word
+	add_to_group("game")
 	spawn_new_word()
 
 func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("ui_accept"): # пробел
+	if event.is_action_pressed("ui_accept"):
 		if current_word_node and current_word_node.completed:
 			shoot()
 	elif event is InputEventKey and event.pressed and not event.echo:
@@ -23,23 +23,37 @@ func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = player.global_position
 
-	# ищем ближайшего врага
 	var enemies = get_tree().get_nodes_in_group("Enemies")
-	if enemies.size() > 0:
-		var nearest = enemies[0]
-		var min_dist = player.global_position.distance_to(nearest.global_position)
-		for e in enemies:
-			var d = player.global_position.distance_to(e.global_position)
+	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
+	var nearest: Node2D = null
+	var min_dist: float = INF
+
+	for e in enemies:
+		if not is_instance_valid(e):
+			continue
+
+		var d: float = player.global_position.distance_to(e.global_position)
+
+		var query := PhysicsRayQueryParameters2D.create(player.global_position, e.global_position)
+		query.exclude = [player]
+		query.collide_with_areas = true
+		query.collide_with_bodies = true
+
+		var hit: Dictionary = space_state.intersect_ray(query)
+
+		if hit.size() > 0 and hit["collider"] == e:
 			if d < min_dist:
 				min_dist = d
 				nearest = e
+
+	if nearest:
 		bullet.direction = (nearest.global_position - player.global_position).normalized()
 	else:
-		bullet.direction = Vector2.UP # если врагов нет — вверх
+		bullet.direction = Vector2.UP
 
 	add_child(bullet)
 
-	# сбрасываем слово после выстрела
+
 	spawn_new_word()
 
 func spawn_new_word():
@@ -62,5 +76,4 @@ func _on_word_failed():
 	spawn_new_word()
 
 func _on_word_completed():
-	# теперь ждём пробела, чтобы выстрелить
 	pass

@@ -21,35 +21,42 @@ func _physics_process(delta: float) -> void:
 
 	if hit.size() > 0:
 		var target: Node = hit["collider"]
-
 		if target == null:
 			return
 
+		var enemy: Node = null
 		if target.is_in_group("Enemies"):
-			target.queue_free()
-			queue_free()
-			get_tree().call_group("game", "spawn_new_word")
-			return
+			enemy = target
 		elif target.get_parent() and target.get_parent().is_in_group("Enemies"):
-			target.get_parent().queue_free()
+			enemy = target.get_parent()
+
+		if enemy:
+			if enemy.has_method("death"):
+				enemy.death()
+			else:
+				enemy.queue_free()
 			queue_free()
 			get_tree().call_group("game", "spawn_new_word")
 			return
 
-		# если попали в стену
 		if target is StaticBody2D:
 			queue_free()
+			get_tree().call_group("game", "spawn_new_word")
 			return
 
 	global_position += motion
 
 func _on_area_entered(area: Area2D) -> void:
-	var target: Node = area
-	if target.is_in_group("Enemies"):
-		target.queue_free()
-		queue_free()
-		get_tree().call_group("game", "spawn_new_word")
-	elif target.get_parent() and target.get_parent().is_in_group("Enemies"):
-		target.get_parent().queue_free()
+	var enemy: Node = null
+	if area.is_in_group("Enemies"):
+		enemy = area
+	elif area.get_parent() and area.get_parent().is_in_group("Enemies"):
+		enemy = area.get_parent()
+
+	if enemy:
+		if enemy.has_method("death"):
+			enemy.death()
+		else:
+			enemy.queue_free()
 		queue_free()
 		get_tree().call_group("game", "spawn_new_word")

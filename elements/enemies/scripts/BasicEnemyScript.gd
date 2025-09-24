@@ -73,21 +73,26 @@ func attack() -> void:
 	attackA.play("attack")
 	
 func death() -> void:
-	#Останавливаем врага
 	velocity = Vector2.ZERO
-	
-	#Проигрываем анимацию смерти
 	sprite.play("death")
-	
-	#Выключаем коллизии
+
 	shape_left.disabled = true
 	shape_right.disabled = true
-	
-	#Ждём окончания анимации
+
+	if is_instance_valid(hitbox):
+		hitbox.monitoring = false
+		hitbox.monitorable = false
+
+	remove_from_group("Enemies")
+
 	await sprite.animation_finished
-	
-	#Отключаем физику
 	set_physics_process(false)
+
+	await get_tree().create_timer(10.0).timeout
+	if is_instance_valid(self):
+		queue_free()
+
+
 	
 func get_direction_to_player() -> Vector2:
 	if is_instance_valid(player):

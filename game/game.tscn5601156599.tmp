@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqeat51756ldk"]
+
+[ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
+[ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
+[ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="5_dakft"]
+[ext_resource type="Script" uid="uid://k12syeuhpjmb" path="res://words/wordmanager.gd" id="5_word"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("4_game")
+
+[node name="main_map" parent="." instance=ExtResource("1_l1rk1")]
+
+[node name="WordManager" type="Node" parent="."]
+script = ExtResource("5_word")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+
+[node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
+position = Vector2(290, 324)
+
+[node name="EnemySkeleton1" parent="." instance=ExtResource("5_dakft")]
+position = Vector2(376, 324)
+
+[node name="Player" parent="." instance=ExtResource("2_vasa2")]
+position = Vector2(339, 330)
