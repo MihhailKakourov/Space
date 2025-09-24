@@ -2,10 +2,10 @@ extends CharacterBody2D
 class_name BasicEnemy
 
 @export var speed = 80
-@export var stop_distance: float = 30.0  #на каком расстоянии остановиться
-@onready var sprite = $AnimatedSprite2D
+@export var stop_distance: float = 26.0  #на каком расстоянии остановиться
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var shape_left: CollisionShape2D = $CollisionShape2DLeft
-@onready var shape_right: CollisionShape2D = $CollisionShape2D2Right
+@onready var shape_right: CollisionShape2D = $CollisionShape2DRight
 var player: Node2D
 
 #TODO: Пофиксить коллизию после смены направления взгляда врага
@@ -44,10 +44,11 @@ func movement_animation() -> void:
 			if velocity.x < 0:
 				shape_left.disabled = true
 				shape_right.disabled = false
+				#sprite.position = Vector2(13, sprite.position.y)
 			else:
 				shape_left.disabled = false
 				shape_right.disabled = true
-		sprite.animation = "movment"
+		sprite.animation = "movement"
 		sprite.play()
 	else:
 		sprite.animation = "idle"

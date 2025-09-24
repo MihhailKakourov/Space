@@ -216,19 +216,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb5pd"]
-radius = 14.0
-height = 44.0
+radius = 7.0
+height = 26.0
 
 [node name="MainCharacter" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_tr1gg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(10, -10)
-scale = Vector2(1.625, 1.625)
+position = Vector2(-0.4, -4.4)
+scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_vasa2")
 animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, -7)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_xb5pd")

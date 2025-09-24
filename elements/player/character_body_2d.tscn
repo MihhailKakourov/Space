@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cc38gtrpx7cuo"]
+[gd_scene load_steps=30 format=3 uid="uid://dfbf65jvgnnqw"]
 
 [ext_resource type="Script" uid="uid://dv4446vd2gkye" path="res://elements/player/player.gd" id="1_tr1gg"]
 [ext_resource type="Texture2D" uid="uid://ciie4flgevs41" path="res://assets/main_character/Idle.png" id="1_u6ywh"]
@@ -216,8 +216,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xb5pd"]
-radius = 7.0
-height = 32.0
+radius = 8.0
+height = 36.0
 
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_tr1gg")
