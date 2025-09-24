@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name BasicEnemy
 
 @export var speed = 80
-@export var damage = 10
+@export var damage = -10
 @export var stop_distance: float = 26.0  #на каком расстоянии остановиться
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attackA: AnimationPlayer = $AttackAnimationPlayer
