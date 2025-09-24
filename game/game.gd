@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var word_manager: Node = $WordManager
+@onready var word: Node = $Word
 @onready var player: CharacterBody2D = $Player
 var current_word_node: Node = null
 
-var bullet_scene = preload("res://words/bullet.tscn")
+var bullet_scene = preload("res://elements/bullet/bullet.tscn")
 
 func _ready():
 	add_to_group("game")
@@ -60,11 +60,11 @@ func spawn_new_word():
 	if current_word_node != null:
 		current_word_node.queue_free()
 
-	var scene = load("res://words/word.tscn")
+	var scene = load("res://elements/word/word.tscn")
 	current_word_node = scene.instantiate()
 
 	add_child(current_word_node)
-	current_word_node.set_word(word_manager.get_random_word())
+	current_word_node.set_word(word.get_random_word())
 	current_word_node.set_player(player)
 
 	current_word_node.connect("word_failed", Callable(self, "_on_word_failed"))
