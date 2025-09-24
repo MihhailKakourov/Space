@@ -1,5 +1,16 @@
 {
-  "easy": ["cat", "dog", "sun"],
+  "easy": [
+	"cat", "dog", "sun", "man", "pen", "cup", "hat", "car", "bus", "bed",
+	"bat", "cow", "pig", "hen", "ant", "bee", "fox", "owl", "rat", "ear",
+	"eye", "lip", "toe", "leg", "arm", "sky", "sea", "mud", "egg", "jam",
+	"toy", "key", "bag", "box", "cap", "map", "fan", "pan", "net", "pen",
+	"ink", "ice", "red", "blue", "green", "hot", "big", "small", "run", "go",
+	"sit", "eat", "win", "fun", "cry", "boy", "girl", "mom", "dad", "kid",
+	"ball", "book", "fish", "bird", "frog", "duck", "ship", "home", "door", "tree",
+	"leaf", "rain", "snow", "wind", "star", "moon", "milk", "cake", "rice", "meat",
+	"salt", "hand", "foot", "nose", "hair", "sand", "rock", "fire", "song", "play",
+	"jump", "walk", "ride", "cook", "draw", "milk", "food", "time", "day", "night"
+  ],
   "medium": ["apple", "table", "green"],
   "hard": ["computer", "language", "keyboard"]
 }

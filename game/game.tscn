@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqeat51756ldk"]
+[gd_scene load_steps=9 format=3 uid="uid://cqeat51756ldk"]
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkmu5cotmd6ao" path="res://elements/word/word.tscn" id="3_u5opy"]
 [ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
 [ext_resource type="PackedScene" uid="uid://lg4c2sesdk4t" path="res://elements/enemies/ui/ui.tscn" id="4_u5opy"]
+[ext_resource type="Script" uid="uid://ddugj13nro8ul" path="res://elements/spawn/EnemySpawner.gd" id="4_y36n6"]
 [ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="5_dakft"]
 
 [node name="game" type="Node2D"]
@@ -14,6 +15,9 @@ script = ExtResource("4_game")
 [node name="main_map" parent="." instance=ExtResource("1_l1rk1")]
 
 [node name="Word" parent="." instance=ExtResource("3_u5opy")]
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("4_y36n6")
 
 [node name="UI" parent="." instance=ExtResource("4_u5opy")]
 

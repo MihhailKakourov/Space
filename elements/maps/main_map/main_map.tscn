@@ -427,3 +427,17 @@ rotation = 1.5708
 [node name="wall68" parent="." instance=ExtResource("14_wxwlg")]
 position = Vector2(317, 81)
 rotation = 1.5708
+
+[node name="EnemySpawns" type="Node2D" parent="."]
+
+[node name="SpawnBottom" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(338, 494)
+
+[node name="SpawnTop" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(336, 165)
+
+[node name="SpawnRight" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(553, 328)
+
+[node name="SpawnLeft" type="Marker2D" parent="EnemySpawns"]
+position = Vector2(126, 327)

@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		if target == null:
 			return
 
+		# Враг
 		var enemy: Node = null
 		if target.is_in_group("Enemies"):
 			enemy = target
@@ -36,15 +37,16 @@ func _physics_process(delta: float) -> void:
 			else:
 				enemy.queue_free()
 			queue_free()
-			get_tree().call_group("game", "spawn_new_word")
+			get_tree().call_group("game", "spawn_new_word") # ← новое слово только тут!
 			return
 
+		# Стена
 		if target is StaticBody2D:
 			queue_free()
-			get_tree().call_group("game", "spawn_new_word")
 			return
 
 	global_position += motion
+
 
 func _on_area_entered(area: Area2D) -> void:
 	var enemy: Node = null

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var word: Node = $Word
 @onready var player: CharacterBody2D = $Player
+
 var current_word_node: Node = null
 
 var bullet_scene = preload("res://elements/bullet/bullet.tscn")
@@ -54,7 +55,7 @@ func shoot():
 	add_child(bullet)
 
 
-	spawn_new_word()
+#	spawn_new_word()
 
 func spawn_new_word():
 	if current_word_node != null:
