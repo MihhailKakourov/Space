@@ -24,7 +24,7 @@ func shoot():
 	bullet.global_position = player.global_position
 
 	# ищем ближайшего врага
-	var enemies = get_tree().get_nodes_in_group("enemies")
+	var enemies = get_tree().get_nodes_in_group("Enemies")
 	if enemies.size() > 0:
 		var nearest = enemies[0]
 		var min_dist = player.global_position.distance_to(nearest.global_position)
