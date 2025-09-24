@@ -288,7 +288,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r054n")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 8.0
 }, {
@@ -512,7 +512,7 @@ script = ExtResource("1_ouvrj")
 position = Vector2(5.2, -9.8)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_5bal3")
-animation = &"attack"
+animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="."]

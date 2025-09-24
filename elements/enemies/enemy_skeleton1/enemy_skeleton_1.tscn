@@ -455,8 +455,9 @@ script = ExtResource("1_qlh8d")
 position = Vector2(5.2, -9.8)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_0b7a7")
-animation = &"attack"
+animation = &"death"
 autoplay = "idle"
+frame = 16
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rpxai")
