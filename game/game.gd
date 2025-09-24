@@ -6,10 +6,17 @@ extends Node2D
 var current_word_node: Node = null
 
 var bullet_scene = preload("res://elements/bullet/bullet.tscn")
+const GAME_OVER_SCENE = preload("res://elements/game_over/game_over.tscn")
 
 func _ready():
+	Events.hp_changed.connect(func(hp: int): check_game_over())
+	
 	add_to_group("game")
 	spawn_new_word()
+	
+func check_game_over():
+	if Globals.hp <= 0:
+		add_child(GAME_OVER_SCENE.instantiate())
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("ui_accept"):

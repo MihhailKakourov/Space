@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
+[ext_resource type="PackedScene" uid="uid://d2r3ly5eoiyuv" path="res://elements/hud/hud.tscn" id="2_y36n6"]
 [ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://dkmu5cotmd6ao" path="res://elements/word/word.tscn" id="3_u5opy"]
 [ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
@@ -11,6 +12,8 @@
 
 [node name="game" type="Node2D"]
 script = ExtResource("4_game")
+
+[node name="HUD" parent="." instance=ExtResource("2_y36n6")]
 
 [node name="main_map" parent="." instance=ExtResource("1_l1rk1")]
 

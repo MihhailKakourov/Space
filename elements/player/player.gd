@@ -33,4 +33,5 @@ func _movment():
 	move_and_slide()
 	
 func take_damage(damage):
+	Globals.change_hp(damage)
 	print("Damage taken: " + str(damage))
