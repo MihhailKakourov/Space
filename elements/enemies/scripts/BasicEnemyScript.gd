@@ -2,11 +2,13 @@ extends CharacterBody2D
 class_name BasicEnemy
 
 @export var speed = 80
+@export var damage = 10
 @export var stop_distance: float = 26.0  #на каком расстоянии остановиться
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var attackA: AnimationPlayer = $AnimationPlayer
+@onready var attackA: AnimationPlayer = $AttackAnimationPlayer
 @onready var shape_left: CollisionShape2D = $CollisionShape2DLeft
 @onready var shape_right: CollisionShape2D = $CollisionShape2DRight
+@onready var hitbox: Area2D = $HitBox
 var player: Node2D
 var attacking := false
 
@@ -16,6 +18,9 @@ var attacking := false
 func _ready() -> void:
 	player = get_tree().root.get_node("game/Player")
 	attackA.animation_finished.connect(_on_attack_finished)
+	hitbox.body_entered.connect(_on_hitbox_body_entered) # если HitBox видит body
+	#print(attackA)
+	#print(attackA.get_animation_list())
 	#print(player)
 
 
@@ -24,9 +29,12 @@ func _physics_process(delta: float) -> void:
 	
 
 func move_to_player() -> void:
+	if attacking:
+		return
+		
 	if is_instance_valid(player):
 		var distance = global_position.distance_to(player.global_position)
-		print("Distance: " + str(distance) + " | Stop Distance: " + str(stop_distance))
+		#print("Distance: " + str(distance) + " | Stop Distance: " + str(stop_distance))
 		
 		if distance > stop_distance:
 			var dir: Vector2 = get_direction_to_player()
@@ -61,6 +69,7 @@ func movement_animation() -> void:
 		sprite.play()
 		
 func attack() -> void:
+	attacking = true
 	attackA.play("attack")
 	
 func get_direction_to_player() -> Vector2:
@@ -71,3 +80,10 @@ func get_direction_to_player() -> Vector2:
 func _on_attack_finished(name: String) -> void:
 	if name == "attack":
 		attacking = false
+		
+func _on_hitbox_body_entered(body: Node) -> void:
+	#проверка группы
+	if body.is_in_group("Player"):
+		# роверка, есть ли метод take_damage
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
