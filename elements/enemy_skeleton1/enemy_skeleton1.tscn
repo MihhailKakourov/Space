@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://r5rkkhila0ic"]
+
+[ext_resource type="Script" uid="uid://f8wsrbrwyi24" path="res://elements/enemy_skeleton1/enemy_skeleton1.gd" id="1_g8g5l"]
+[ext_resource type="Texture2D" uid="uid://b17ocmbpi25c8" path="res://assets/Enemy_Animations_Set/enemies-skeleton1_idle.png" id="2_2atg3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8g5l"]
+atlas = ExtResource("2_2atg3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2atg3"]
+atlas = ExtResource("2_2atg3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp3x5"]
+atlas = ExtResource("2_2atg3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejgm2"]
+atlas = ExtResource("2_2atg3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gevle"]
+atlas = ExtResource("2_2atg3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw2cl"]
+atlas = ExtResource("2_2atg3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6v2aw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8g5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2atg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp3x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejgm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gevle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw2cl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i80nf"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -5)
+sprite_frames = SubResource("SpriteFrames_6v2aw")
+script = ExtResource("1_g8g5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i80nf")

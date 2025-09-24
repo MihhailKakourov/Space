@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqeat51756ldk"]
+[gd_scene load_steps=6 format=3 uid="uid://cqeat51756ldk"]
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
 [ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
-[ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="4_4fuuu"]
-[ext_resource type="Script" path="res://game/game.gd" id="4_game"]
+[ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
 [ext_resource type="Script" uid="uid://k12syeuhpjmb" path="res://words/wordmanager.gd" id="5_word"]
 
 [node name="game" type="Node2D"]
@@ -15,8 +15,11 @@ script = ExtResource("4_game")
 [node name="Player" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(339, 330)
 
-[node name="EnemySkeleton2" parent="." instance=ExtResource("4_4fuuu")]
-position = Vector2(353, 181)
+[node name="EnemySkeleton1" parent="." instance=ExtResource("3_h7iqs")]
+position = Vector2(546, 309)
+
+[node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
+position = Vector2(130, 307)
 
 [node name="WordManager" type="Node" parent="."]
 script = ExtResource("5_word")

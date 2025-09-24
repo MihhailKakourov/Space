@@ -352,13 +352,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f0pej"]
-radius = 20.0
+radius = 19.0
 height = 44.0
 
 [node name="SkeletonEnemy2" type="CharacterBody2D"]
 script = ExtResource("1_ouvrj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -15)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_5bal3")
 animation = &"idle"
@@ -366,10 +367,9 @@ autoplay = "idle"
 frame_progress = 0.849086
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 15)
 shape = SubResource("CapsuleShape2D_f0pej")
 
 [node name="CollisionShape2D2Right" type="CollisionShape2D" parent="."]
-position = Vector2(6, 15)
+position = Vector2(19, 0)
 shape = SubResource("CapsuleShape2D_f0pej")
 disabled = true
