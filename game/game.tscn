@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqeat51756ldk"]
+[gd_scene load_steps=11 format=3 uid="uid://cqeat51756ldk"]
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://lg4c2sesdk4t" path="res://elements/enemies/ui/ui.tscn" id="4_u5opy"]
 [ext_resource type="Script" uid="uid://ddugj13nro8ul" path="res://elements/spawn/EnemySpawner.gd" id="4_y36n6"]
 [ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="5_dakft"]
+[ext_resource type="PackedScene" uid="uid://01anj84lbm7n" path="res://elements/shop/shop.tscn" id="10_j8tme"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("4_game")
@@ -32,3 +33,6 @@ position = Vector2(376, 324)
 
 [node name="Player" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(339, 330)
+
+[node name="shop" parent="." instance=ExtResource("10_j8tme")]
+position = Vector2(59, 330)

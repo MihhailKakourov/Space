@@ -1,0 +1,137 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7sllpdqu2n2"]
+
+[ext_resource type="Script" uid="uid://cq68q8psmtvy7" path="res://elements/shop/shop_page.gd" id="1_ox70x"]
+[ext_resource type="Texture2D" uid="uid://cydcleq5dhiyy" path="res://assets/healthpotion.png" id="2_wx4tf"]
+
+[sub_resource type="Animation" id="Animation_tgaap"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -600), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ox70x"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -600)]
+}
+
+[sub_resource type="Animation" id="Animation_wx4tf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -600)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wx4tf"]
+_data = {
+&"RESET": SubResource("Animation_wx4tf"),
+&"transIn": SubResource("Animation_tgaap"),
+&"transOut": SubResource("Animation_ox70x")
+}
+
+[node name="Shop" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -600)
+transform = Transform2D(1, 0, 0, 1, 0, -600)
+script = ExtResource("1_ox70x")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 89.0
+offset_top = 135.0
+offset_right = 611.0
+offset_bottom = 495.0
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wx4tf")
+}
+
+[node name="CloseButton" type="Button" parent="."]
+offset_left = 530.0
+offset_top = 145.0
+offset_right = 598.0
+offset_bottom = 183.0
+text = "Close"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite" type="Sprite2D" parent="Control"]
+position = Vector2(340, 255)
+scale = Vector2(0.158747, 0.158747)
+texture = ExtResource("2_wx4tf")
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 150.0
+offset_right = 383.0
+offset_bottom = 188.0
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Desr" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 330.0
+offset_right = 415.0
+offset_bottom = 382.0
+text = "Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Prev" type="Button" parent="Control"]
+offset_left = 252.0
+offset_top = 240.0
+offset_right = 282.0
+offset_bottom = 280.0
+text = "<"
+
+[node name="Next" type="Button" parent="Control"]
+offset_left = 400.0
+offset_top = 241.0
+offset_right = 430.0
+offset_bottom = 281.0
+text = ">"
+
+[node name="Purchase" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 423.0
+offset_right = 416.0
+offset_bottom = 463.0
+text = "Purchase"
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_pressed"]
