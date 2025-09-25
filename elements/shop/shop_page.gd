@@ -25,7 +25,7 @@ func _on_close_button_pressed():
 	shop_open = false
 
 func _on_purchase_pressed():
-	if Globals.coin >= 5 and Globals.hp < 85:
+	if Globals.coin >= 5 and Globals.hp != 100:
 		Globals.change_hp(15)
 		Globals.change_coin(-5)
 	else:
