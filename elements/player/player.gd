@@ -5,6 +5,9 @@ const SPEED = 300.0
 var last_dir = "down"
 
 func _physics_process(delta):
+	_movment()
+	
+func _movment():
 	var LR = Input.get_axis("ui_left", "ui_right")
 	var UD = Input.get_axis("ui_up", "ui_down")
 	velocity = Vector2(LR, UD) * SPEED
@@ -28,3 +31,7 @@ func _physics_process(delta):
 		anim.play("idle_" + last_dir)
 	
 	move_and_slide()
+	
+func take_damage(damage):
+	Globals.change_hp(damage)
+	print("Damage taken: " + str(damage))

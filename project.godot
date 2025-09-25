@@ -15,9 +15,23 @@ run/main_scene="uid://cqeat51756ldk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*res://core/events.gd"
+Globals="*res://core/globals.gd"
+
 [display]
 
-window/size/viewport_width=672
+window/size/viewport_width=688
+window/size/viewport_height=672
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
+
+[global_group]
+
+Enemies=""
 
 [layer_names]
 

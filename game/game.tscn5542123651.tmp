@@ -1,29 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqeat51756ldk"]
+[gd_scene load_steps=7 format=3 uid="uid://cqeat51756ldk"]
 
 [ext_resource type="PackedScene" uid="uid://u7vy4wtama57" path="res://elements/maps/main_map/main_map.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cc38gtrpx7cuo" path="res://elements/player/player.tscn" id="2_vasa2"]
-[ext_resource type="PackedScene" uid="uid://d2r3ly5eoiyuv" path="res://elements/hud/hud.tscn" id="2_y36n6"]
 [ext_resource type="PackedScene" uid="uid://8os2no8ix8uu" path="res://elements/enemies/skeleton_enemy_2/skeleton_enemy_2.tscn" id="3_h7iqs"]
-[ext_resource type="PackedScene" uid="uid://dkmu5cotmd6ao" path="res://elements/word/word.tscn" id="3_u5opy"]
 [ext_resource type="Script" uid="uid://6qxafhia3vni" path="res://game/game.gd" id="4_game"]
-[ext_resource type="PackedScene" uid="uid://lg4c2sesdk4t" path="res://elements/enemies/ui/ui.tscn" id="4_u5opy"]
-[ext_resource type="Script" uid="uid://ddugj13nro8ul" path="res://elements/spawn/EnemySpawner.gd" id="4_y36n6"]
 [ext_resource type="PackedScene" uid="uid://bfcwuavvxricc" path="res://elements/enemies/enemy_skeleton1/enemy_skeleton_1.tscn" id="5_dakft"]
-[ext_resource type="PackedScene" uid="uid://01anj84lbm7n" path="res://elements/shop/shop.tscn" id="10_j8tme"]
+[ext_resource type="Script" uid="uid://k12syeuhpjmb" path="res://words/wordmanager.gd" id="5_word"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("4_game")
 
-[node name="HUD" parent="." instance=ExtResource("2_y36n6")]
-
 [node name="main_map" parent="." instance=ExtResource("1_l1rk1")]
 
-[node name="Word" parent="." instance=ExtResource("3_u5opy")]
+[node name="WordManager" type="Node" parent="."]
+script = ExtResource("5_word")
 
-[node name="EnemySpawner" type="Node2D" parent="."]
-script = ExtResource("4_y36n6")
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="UI" parent="." instance=ExtResource("4_u5opy")]
+[node name="MarginContainer" type="CenterContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
 
 [node name="SkeletonEnemy2" parent="." instance=ExtResource("3_h7iqs")]
 position = Vector2(290, 324)
@@ -33,6 +37,3 @@ position = Vector2(376, 324)
 
 [node name="Player" parent="." instance=ExtResource("2_vasa2")]
 position = Vector2(339, 330)
-
-[node name="shop" parent="." instance=ExtResource("10_j8tme")]
-position = Vector2(57, 334)
