@@ -10,6 +10,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_color = Color(0.929412, 0.505882, 0, 1)
 
 [node name="GameOver" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_m54fw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.756863)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -26,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 
@@ -33,6 +36,7 @@ theme_override_constants/margin_right = 30
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -42,10 +46,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 2
 layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxFlat_y36n6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_l8g03")
-button_mask = 0
+action_mode = 0
 text = "RESTART"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
