@@ -4,6 +4,7 @@ class_name BasicEnemy
 @export var speed = 80
 @export var damage = -10
 @export var stop_distance: float = 26.0  #на каком расстоянии остановиться
+@onready var globals = get_node("/root/Globals")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attackA: AnimationPlayer = $AttackAnimationPlayer
 @onready var shape_left: CollisionShape2D = $CollisionShape2DLeft
@@ -82,6 +83,9 @@ func death() -> void:
 	if is_instance_valid(hitbox):
 		hitbox.monitoring = false
 		hitbox.monitorable = false
+		
+	if Globals:
+		Globals.change_coin(1)
 
 	remove_from_group("Enemies")
 

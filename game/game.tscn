@@ -35,4 +35,4 @@ position = Vector2(376, 324)
 position = Vector2(339, 330)
 
 [node name="shop" parent="." instance=ExtResource("10_j8tme")]
-position = Vector2(59, 330)
+position = Vector2(57, 334)

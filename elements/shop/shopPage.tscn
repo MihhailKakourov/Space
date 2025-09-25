@@ -1,7 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7sllpdqu2n2"]
 
 [ext_resource type="Script" uid="uid://cq68q8psmtvy7" path="res://elements/shop/shop_page.gd" id="1_ox70x"]
-[ext_resource type="Texture2D" uid="uid://cydcleq5dhiyy" path="res://assets/healthpotion.png" id="2_wx4tf"]
+[ext_resource type="Texture2D" uid="uid://oa2huuru3ov8" path="res://assets/healthpotion.png" id="2_wx4tf"]
+
+[sub_resource type="Animation" id="Animation_wx4tf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -600)]
+}
 
 [sub_resource type="Animation" id="Animation_tgaap"]
 resource_name = "transIn"
@@ -33,21 +48,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -600)]
 }
 
-[sub_resource type="Animation" id="Animation_wx4tf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -600)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wx4tf"]
 _data = {
 &"RESET": SubResource("Animation_wx4tf"),
@@ -67,10 +67,88 @@ offset_top = 135.0
 offset_right = 611.0
 offset_bottom = 495.0
 
-[node name="Anim" type="AnimationPlayer" parent="."]
+[node name="Control" type="Control" parent="Panel"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -89.0
+offset_top = -135.0
+offset_right = -49.0
+offset_bottom = -95.0
+
+[node name="Sprite" type="Sprite2D" parent="Panel/Control"]
+position = Vector2(340, 255)
+scale = Vector2(0.158747, 0.158747)
+texture = ExtResource("2_wx4tf")
+
+[node name="Name" type="Label" parent="Panel/Control"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 152.0
+offset_right = 406.0
+offset_bottom = 190.0
+text = "Healing salve"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Desr" type="Label" parent="Panel/Control"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 330.0
+offset_right = 415.0
+offset_bottom = 382.0
+text = "Heals you for 15 HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Purchase" type="Button" parent="Panel/Control"]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 423.0
+offset_right = 416.0
+offset_bottom = 463.0
+text = "Purchase"
+
+[node name="CoinErrorPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = -1.644
+anchor_top = -10.609
+anchor_right = -1.644
+anchor_bottom = -10.609
+offset_left = 1330.07
+offset_top = 7343.25
+offset_right = 1617.07
+offset_bottom = 7432.25
+
+[node name="ErrorLabel" type="Label" parent="CoinErrorPanel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 41.0
+offset_right = 282.0
+offset_bottom = 79.0
+text = "Not enough gold or Your HP is max!"
+
+[node name="CloseErrorButton" type="Button" parent="CoinErrorPanel"]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 4.0
+offset_right = 277.0
+offset_bottom = 32.0
+text = "Close"
+
+[node name="AnimStart" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wx4tf")
 }
+
+[node name="Coins" type="Label" parent="."]
+offset_left = 105.0
+offset_top = 149.0
+offset_right = 166.0
+offset_bottom = 172.0
+text = "Coins: 0"
 
 [node name="CloseButton" type="Button" parent="."]
 offset_left = 530.0
@@ -79,59 +157,8 @@ offset_right = 598.0
 offset_bottom = 183.0
 text = "Close"
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Sprite" type="Sprite2D" parent="Control"]
-position = Vector2(340, 255)
-scale = Vector2(0.158747, 0.158747)
-texture = ExtResource("2_wx4tf")
-
-[node name="Name" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 295.0
-offset_top = 150.0
-offset_right = 383.0
-offset_bottom = 188.0
-text = "Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Desr" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 262.0
-offset_top = 330.0
-offset_right = 415.0
-offset_bottom = 382.0
-text = "Description"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Prev" type="Button" parent="Control"]
-offset_left = 252.0
-offset_top = 240.0
-offset_right = 282.0
-offset_bottom = 280.0
-text = "<"
-
-[node name="Next" type="Button" parent="Control"]
-offset_left = 400.0
-offset_top = 241.0
-offset_right = 430.0
-offset_bottom = 281.0
-text = ">"
-
-[node name="Purchase" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 259.0
-offset_top = 423.0
-offset_right = 416.0
-offset_bottom = 463.0
-text = "Purchase"
-
+[connection signal="pressed" from="Panel/Control/Purchase" to="." method="_on_purchase_pressed"]
+[connection signal="hidden" from="CoinErrorPanel" to="." method="_on_anim_coin_panel_hidden"]
+[connection signal="pressed" from="CoinErrorPanel/CloseErrorButton" to="." method="_on_close_error_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_pressed"]
